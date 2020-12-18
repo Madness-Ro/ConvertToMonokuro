@@ -1,0 +1,51 @@
+﻿<Window x:Class="Hair_StylishUP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConvertToMonokuro"
+        mc:Ignorable="d"
+        Title="Convert to Monokuro" Width="800" Height="600" >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label HorizontalAlignment="Center" Content="Convert to MonoKuro" FontSize="40"/>
+            <StackPanel Orientation="Horizontal">
+                <Viewbox
+                        x:Name="View_Image"
+                        Width="256"
+                        Height="256"
+                        HorizontalAlignment="Left">
+                    <Image Source="{Binding Bmp}"/>
+                </Viewbox>
+                <Image
+                        x:Name="Take_Picture"
+                        Width="256"
+                        Height="256"
+                        HorizontalAlignment="Right" Source="{Binding Picture}"/>
+                <Image
+                        x:Name="Convert_Image"
+                        Width="256"
+                        Height="256"
+                        HorizontalAlignment="Right" Source="{Binding Convert_Bmp}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="鏡" Height="30" Width="256" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Content="撮った写真" Height="30" Width="256" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Content="変換した写真" Height="30" Width="256" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Height="30" Content="Camera On" Command="{Binding StartCaptureCommand}"/>
+                <Button Height="30" Content="Camera Off" Command="{Binding StopCaptureCommand}"/>
+                <Button Height="30" Content="写真撮影" Command="{Binding TakePictureCommand}" Width="139"/>
+                <Button Height="30" Content="GETリクエスト" Command="{Binding GetRequestCommand}" Width="139"/>
+                <Button Height="30" Content="POSTリクエスト" Command="{Binding PostRequestCommand}" Width="139"/>
+                <Button Height="30" Content="ディバグ" Command="{Binding DebugCommand}" Width="139" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBox Height="90" TextWrapping="Wrap" Text="{Binding Get_Data}" Margin="0,0,0.333,0"/>
+            <TextBox Height="90" TextWrapping="Wrap" Text="{Binding Post_Data}" Margin="0,0,0.333,0"/>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>
